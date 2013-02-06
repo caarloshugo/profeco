@@ -25,7 +25,7 @@ $ZP["db"]["dbSocket"] = NULL;
  */
 $ZP["db"]["dbFilename"] = "mydatabase.db";
 $ZP["db"]["dbMode"]	    = 0666;
-	
+
 /**
  *	NoSQL Databases
  */
