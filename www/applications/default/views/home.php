@@ -1,3 +1,3 @@
 <div id="message">
-	<p>Hola</p>
+	<p>App profeco</p>
 </div>
