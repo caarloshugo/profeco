@@ -29,7 +29,7 @@
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="active">
-                <a href="http://zanphp.com">ZanPHP.com</a>
+                <a href="http://profeco.com">Profeco</a>
               </li>
               <li class="">
                 <a href="#Home">Home</a>
@@ -49,7 +49,7 @@
 		<div class="container">
 			<div class="content">
 				<div class="page-header">
-					<h1>ZanPHP <small>PHP5 Framework</small></h1>
+					<h1>Profeco <small>App para la sociedad</small></h1>
 				</div>
 				
 				<div class="row">
