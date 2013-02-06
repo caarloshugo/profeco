@@ -13,17 +13,16 @@ class Default_Controller extends ZP_Controller {
 		$this->Default_Model = $this->model("Default_Model");
 		
 		$this->Templates->theme();
-		
 	}
 	
 	public function index() {
-		$vars["countries"] = $this->Default_Model->getCountries();
-		$vars["view"] 	   = $this->view("home", TRUE);
+		$vars["cities"] = $this->Default_Model->getCities();
+		$vars["view"] 	= $this->view("home", TRUE);
 			
 		$this->render("content", $vars);
 	}
 	
-	public function get() {
+	public function get($city) {
 		
 	}
 }

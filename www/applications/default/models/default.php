@@ -13,12 +13,16 @@ class Default_Model extends ZP_Model {
 		
 		$this->helpers();
 	
-		$this->table = "dataset";
+		$this->table = "profeco";
 	}
 	
-	public function getCountries() {
+	public function getCities() {
 		$data = $this->Db->query("select distinct estado, nestado from profeco order by estado asc");
 		
 		return $data;
+	}
+	
+	public function getCity($city) {
+		
 	}
 }
