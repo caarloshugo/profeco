@@ -15,4 +15,10 @@ class Default_Model extends ZP_Model {
 	
 		$this->table = "dataset";
 	}
+	
+	public function getCountries() {
+		$data = $this->Db->query("select distinct estado, nestado from profeco order by estado asc");
+		
+		return $data;
+	}
 }

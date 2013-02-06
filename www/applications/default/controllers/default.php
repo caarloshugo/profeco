@@ -17,8 +17,13 @@ class Default_Controller extends ZP_Controller {
 	}
 	
 	public function index() {
-		$vars["view"] = $this->view("home", TRUE);
+		$vars["countries"] = $this->Default_Model->getCountries();
+		$vars["view"] 	   = $this->view("home", TRUE);
 			
 		$this->render("content", $vars);
+	}
+	
+	public function get() {
+		
 	}
 }

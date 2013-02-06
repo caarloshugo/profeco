@@ -721,6 +721,10 @@ class ZP_Db extends ZP_Load {
 	 		return ($this->Rs) ? $this->Rs->closeCursor() : FALSE;
 	 	} 
 
+		if($this->db["dbDriver"] === "pgsql") {
+			return FALSE;
+		}
+		
 	 	return ($this->Rs) ? $this->Rs->free() : FALSE;
 	}
 	
