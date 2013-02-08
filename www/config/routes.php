@@ -8,17 +8,24 @@ if(!defined("_access")) {
 
 $routes = array(
 	0 => array(
-		"pattern"	  => "/^get/",
+		"pattern"	  => "/^products/",
 		"application" => "default",
 		"controller"  => "default",
-		"method"	  => "get",
+		"method"	  => "products",
 		"params"	  => array(segment(1))
 	),
 	1 => array(
-		"pattern"	  => "/^estado/",
+		"pattern"	  => "/^brands/",
 		"application" => "default",
 		"controller"  => "default",
-		"method"	  => "estado",
-		"params"	  => array()
+		"method"	  => "brands",
+		"params"	  => array(segment(1))
+	),
+	2 => array(
+		"pattern"	  => "/^prices/",
+		"application" => "default",
+		"controller"  => "default",
+		"method"	  => "prices",
+		"params"	  => array(segment(1), segment(2), segment(3))
 	)
 );

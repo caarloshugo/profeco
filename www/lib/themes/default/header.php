@@ -6,6 +6,8 @@
 		
 		<link href="<?php print path("vendors/css/frameworks/bootstrap/bootstrap.min.css", "zan"); ?>" rel="stylesheet">
 		<link href="<?php print $this->themePath; ?>/css/style.css" rel="stylesheet">
+		<script src="<?php print $this->themePath; ?>/js/jquery.js"></script>
+		<script src="<?php print $this->themePath; ?>/js/functions.js"></script>
 		
 		<?php print $this->getCSS(); ?>
 		
