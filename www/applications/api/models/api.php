@@ -27,7 +27,7 @@ class Api_Model extends ZP_Model {
 	}
 	
 	public function getCategories() {
-		$data = $this->Db->query("select id, name from catalog");
+		$data = $this->Db->query("select id, name from categories");
 		
 		foreach($data as $key=> $value) {
 			$data[$key]["name"] = utf8_decode($value["name"]);
@@ -36,7 +36,7 @@ class Api_Model extends ZP_Model {
 		return $data;
 	}
 	
-	public function getSubCategories() {
+	public function getSubCategories($id_category) {
 		
 	}
 }
