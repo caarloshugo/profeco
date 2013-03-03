@@ -20,7 +20,7 @@ class Default_Model extends ZP_Model {
 		$data = $this->Db->query("select * from cities");
 		
 		foreach($data as $key=> $value) {
-			$data[$key]["state"] = utf8_decode($value["state"]);
+			$data[$key]["name"] = utf8_decode($value["name"]);
 		}
 		
 		return $data;
