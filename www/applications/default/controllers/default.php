@@ -22,8 +22,8 @@ class Default_Controller extends ZP_Controller {
 		$this->render("content", $vars);
 	}
 	
-	public function get($city) {
+	public function getCities() {
 		$vars["cities"] = $this->Default_Model->getCities();
-		die(var_dump($vars));
+		echo json_encode($vars);
 	}
 }

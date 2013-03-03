@@ -8,7 +8,7 @@ if(!defined("_access")) {
 
 $routes = array(
 	0 => array(
-		"pattern"	  => "/^get/",
+		"pattern"	  => "/^getCities/",
 		"application" => "default",
 		"controller"  => "default",
 		"method"	  => "get",
