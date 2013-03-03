@@ -20,9 +20,9 @@ class Default_Model extends ZP_Model {
 		$data = $this->Db->query("select distinct estado, nestado from profeco order by estado asc");
 		
 		foreach($data as $key=> $value) {
-			var_dump($data["nestado"]);
-			var_dump(utf8_decode($data["nestado"]));
-			var_dump(utf8_encode($data["nestado"]));
+			var_dump($value["nestado"]);
+			var_dump(utf8_decode($value["nestado"]));
+			var_dump(utf8_encode($value["nestado"]));
 		}
 		
 		die("ok");
