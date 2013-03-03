@@ -26,6 +26,6 @@ $routes = array(
 		"application" => "api",
 		"controller"  => "api",
 		"method"	  => "subcategories",
-		"params"	  => array(segment(1))
+		"params"	  => array(segment(1), segment(2))
 	)
 );
