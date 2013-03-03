@@ -19,6 +19,10 @@ class Default_Model extends ZP_Model {
 	public function getCities() {
 		$data = $this->Db->query("select distinct estado, nestado from profeco order by estado asc");
 		
+		foreach($data as $key=> $value) {
+			die(var_dump($key));
+		}
+		
 		return $data;
 	}
 	
