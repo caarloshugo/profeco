@@ -23,6 +23,6 @@ class Default_Controller extends ZP_Controller {
 	}
 	
 	public function get($city) {
-		
+		die($city);
 	}
 }
