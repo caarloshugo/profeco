@@ -148,7 +148,7 @@ function execute() {
 	
 	$Load->app($application);
 
-	$controllerFile = ($applicationController) ? getController($applicationController, $application, TRUE) : getController($applicationController, $application, TRUE);
+	$controllerFile = ($applicationController) ? getController($applicationController, $application, TRUE) : getController(NULL, $application, TRUE);
 
 	if(!$controllerFile) {
 		getException("The application \"$application\" doesn't exists");

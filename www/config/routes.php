@@ -9,21 +9,21 @@ if(!defined("_access")) {
 $routes = array(
 	0 => array(
 		"pattern"	  => "/^cities/",
-		"application" => "default",
+		"application" => "api",
 		"controller"  => "api",
 		"method"	  => "cities",
 		"params"	  => array(segment(1))
 	),
 	1 => array(
 		"pattern"	  => "/^categories/",
-		"application" => "default",
+		"application" => "api",
 		"controller"  => "api",
 		"method"	  => "categories",
 		"params"	  => array(segment(1))
 	),
 	1 => array(
 		"pattern"	  => "/^sub-categories/",
-		"application" => "default",
+		"application" => "api",
 		"controller"  => "api",
 		"method"	  => "subcategories",
 		"params"	  => array(segment(1))
