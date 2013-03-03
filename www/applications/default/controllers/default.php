@@ -26,4 +26,9 @@ class Default_Controller extends ZP_Controller {
 		$vars["cities"] = $this->Default_Model->getCities();
 		echo json_encode($vars);
 	}
+	
+	public function categories() {
+		$vars["categories"] = $this->Default_Model->getCategories();
+		echo json_encode($vars);
+	}
 }

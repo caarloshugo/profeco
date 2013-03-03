@@ -25,4 +25,16 @@ class Default_Model extends ZP_Model {
 		
 		return $data;
 	}
+	
+	public function getCategories() {
+		$data = $this->Db->query("select * from catalogo");
+		
+		die(var_dump($data));
+		
+		foreach($data as $key=> $value) {
+			$data[$key]["nestado"] = utf8_decode($value["nestado"]);
+		}
+		
+		return $data;
+	}
 }
