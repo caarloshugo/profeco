@@ -22,7 +22,7 @@ class Default_Controller extends ZP_Controller {
 		$this->render("content", $vars);
 	}
 	
-	public function get($city) {
-		die($city);
+	public function getCities($city) {
+		$vars["cities"] = $this->Default_Model->getCities();
 	}
 }

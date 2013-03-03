@@ -13,5 +13,12 @@ $routes = array(
 		"controller"  => "default",
 		"method"	  => "get",
 		"params"	  => array(segment(1))
+	),
+	1 => array(
+		"pattern"	  => "/^getCities/",
+		"application" => "default",
+		"controller"  => "api",
+		"method"	  => "getCities",
+		"params"	  => array(segment(1))
 	)
 );
