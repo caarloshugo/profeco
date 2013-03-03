@@ -15,15 +15,18 @@ class Api_Controller extends ZP_Controller {
 		$this->Templates->theme();
 	}
 	
-	public function index() {
+	public function cities() {
 		$vars["cities"] = $this->Default_Model->getCities();
-		$vars["view"] 	= $this->view("home", TRUE);
-			
-		$this->render("content", $vars);
+		echo json_encode($vars);
 	}
 	
-	public function get($city) {
-		$vars["cities"] = $this->Default_Model->getCities();
-		die(var_dump($vars));
+	public function categories() {
+		$vars["categories"] = $this->Default_Model->getCategories();
+		echo json_encode($vars);
+	}
+	
+	public function subcategories($id_category) {
+		$vars["sub-categories"] = $this->Default_Model->getSubCategories($id_category);
+		echo json_encode($vars);
 	}
 }

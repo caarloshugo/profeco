@@ -10,15 +10,22 @@ $routes = array(
 	0 => array(
 		"pattern"	  => "/^cities/",
 		"application" => "default",
-		"controller"  => "default",
+		"controller"  => "api",
 		"method"	  => "cities",
 		"params"	  => array(segment(1))
 	),
 	1 => array(
 		"pattern"	  => "/^categories/",
 		"application" => "default",
-		"controller"  => "default",
+		"controller"  => "api",
 		"method"	  => "categories",
+		"params"	  => array(segment(1))
+	),
+	1 => array(
+		"pattern"	  => "/^sub-categories/",
+		"application" => "default",
+		"controller"  => "api",
+		"method"	  => "subcategories",
 		"params"	  => array(segment(1))
 	)
 );
