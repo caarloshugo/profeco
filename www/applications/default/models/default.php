@@ -17,7 +17,7 @@ class Default_Model extends ZP_Model {
 	}
 	
 	public function getCities() {
-		$data = $this->Db->query("select distinct id_state, state from profeco2 order by id_state asc");
+		$data = $this->Db->query("select * from cities");
 		
 		foreach($data as $key=> $value) {
 			$data[$key]["state"] = utf8_decode($value["state"]);
