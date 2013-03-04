@@ -37,8 +37,8 @@ class Api_Model extends ZP_Model {
 	}
 	
 	public function getSubCategories($id_city, $id_category) {
-		$data = $this->Db->query("select id, name from subcategories where id_category=".$id_category." and status=true");
-		
+		$data = $this->Db->query("select distinct(id_subcategory), name from profeco join subcategories on profeco.id_subcategory=subcategories.id where id_city=".$id_city." and profeco.id_category=".$id_category." order by id_subcategory desc");
+		die(var_dump($data));
 		foreach($data as $key=> $value) {
 			$data[$key]["name"] = utf8_decode($value["name"]);
 		}

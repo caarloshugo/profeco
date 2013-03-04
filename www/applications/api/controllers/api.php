@@ -3,7 +3,6 @@
  * Access from index.php:
  */
 
-
 class Api_Controller extends ZP_Controller {
 	
 	public function __construct() {
@@ -26,9 +25,6 @@ class Api_Controller extends ZP_Controller {
 	}
 	
 	public function subcategories($id_city, $id_category) {
-		var_dump($id_city);
-		var_dump($id_category);
-		die("ok");
 		$vars["sub-categories"] = $this->Api_Model->getSubCategories($id_city, $id_category);
 		echo json_encode($vars);
 	}
