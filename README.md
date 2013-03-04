@@ -6,4 +6,19 @@ Pesca Precios
 Nota: Las aplicaciones tanto web como móvil están en desarrollo.
 
 
-##Estructura del Código
+##Estructura del Código 
+> Lista de clases utilizadas y ejemplos de implementación
++ [[Pasos a seguir para la importación de los datos]]
++ [[Api Controller]]
++ [[Api Model]]
++ [[API]]
+
+##Base de datos
+> La estructura de la base de datos se lista a continuación:
+
+>Tablas de la base datos
++ [[profeco_table]]
++ [[categories_table]]
++ [[cities_table]]
++ [[subcategories_table]]
+
