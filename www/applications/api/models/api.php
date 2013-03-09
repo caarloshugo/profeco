@@ -17,7 +17,7 @@ class Api_Model extends ZP_Model {
 	}
 	
 	public function getCities() {
-		$data = $this->Db->query("select id, name from cities");
+		$data = $this->Db->query("select id_city as id, name from cities");
 		
 		foreach($data as $key=> $value) {
 			$data[$key]["name"] = utf8_decode($value["name"]);
