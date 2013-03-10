@@ -45,4 +45,14 @@ class Api_Model extends ZP_Model {
 		
 		return $data;
 	}
+	
+	public function getBrands($id_city, $id_subcategory) {
+		$data = $this->Db->query("select id, name from brands where id IN (select id_brand from profeco where id_city=".$id_city." and id_subcategory=".$id_subcategory.") order by name desc");
+		
+		foreach($data as $key=> $value) {
+			$data[$key]["name"] = utf8_decode($value["name"]);
+		}
+		
+		return $data;
+	}
 }

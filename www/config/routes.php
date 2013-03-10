@@ -27,5 +27,12 @@ $routes = array(
 		"controller"  => "api",
 		"method"	  => "subcategories",
 		"params"	  => array(segment(1), segment(2))
+	),
+	3 => array(
+		"pattern"	  => "/^brands/",
+		"application" => "api",
+		"controller"  => "api",
+		"method"	  => "brands",
+		"params"	  => array(segment(1), segment(2))
 	)
 );

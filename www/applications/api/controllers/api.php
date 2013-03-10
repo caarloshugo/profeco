@@ -28,4 +28,9 @@ class Api_Controller extends ZP_Controller {
 		$vars["sub-categories"] = $this->Api_Model->getSubCategories($id_city, $id_category);
 		echo json_encode($vars);
 	}
+	
+	public function brands($id_city, $id_subcategory) {
+		$vars["brands"] = $this->Api_Model->getSubCategories($id_city, $id_subcategory);
+		echo json_encode($vars);
+	}
 }
