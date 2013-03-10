@@ -30,7 +30,7 @@ class Api_Controller extends ZP_Controller {
 	}
 	
 	public function brands($id_city, $id_subcategory) {
-		$vars["brands"] = $this->Api_Model->getSubCategories($id_city, $id_subcategory);
+		$vars["brands"] = $this->Api_Model->getBrands($id_city, $id_subcategory);
 		echo json_encode($vars);
 	}
 }
