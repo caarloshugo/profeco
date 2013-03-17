@@ -96,7 +96,10 @@ class Api_Model extends ZP_Model {
 		$data = explode(",", $text);
 
 		if($pos !== NULL) {
-			return utf8_decode($data[$pos]);
+			$text = ltrim($data[$pos], '"');
+			$text = rtrim($text, '"');
+			
+			return utf8_decode($text);
 		} else {
 			return utf8_decode($data);
 		}
