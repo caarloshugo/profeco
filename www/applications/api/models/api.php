@@ -37,7 +37,8 @@ class Api_Model extends ZP_Model {
 	}
 	
 	public function getSubCategories($id_city, $id_category) {
-		$data = $this->Db->query("select distinct(id_subcategory), name from profeco join subcategories on profeco.id_subcategory=subcategories.id where id_city=".$id_city." and profeco.id_category=".$id_category." order by id_subcategory desc");
+		$query = "select distinct(id_subcategory), name from profeco join subcategories on profeco.id_subcategory=subcategories.id where id_city=".$id_city." and profeco.id_category=".$id_category." order by id_subcategory desc";
+		$data  = $this->Db->query($query);
 		
 		foreach($data as $key=> $value) {
 			$data[$key]["name"] = utf8_decode($value["name"]);
@@ -47,13 +48,22 @@ class Api_Model extends ZP_Model {
 	}
 	
 	public function getBrands($id_city, $id_subcategory) {
-		$data = $this->Db->query("select id, name from brands where id IN (select id_brand from profeco where id_city=".$id_city." and id_subcategory=".$id_subcategory.") order by name desc");
+		$query = "select id, name from brands where id IN (select id_brand from profeco where id_city=".$id_city." and id_subcategory=".$id_subcategory.") order by name desc";
+		$data  = $this->Db->query($query);
 		
 		foreach($data as $key=> $value) {
 			$data[$key]["name"] = utf8_decode($value["name"]);
 		}
 		
 		return $data;
+	}
+	
+	public function getProducts($id_city, $id_category, $id_subcategory, $id_brand, $offset) {
+		$query =  "select product,id, price,establishment from profeco where id_city=".$id_city." and id_category=".$id_category." and ";
+		$query .= "id_subcategory=".$id_subcategory." and id_brand=".$id_brand." limit 20 offset " . $offset;
+		$data  = $this->Db->query($query);
+		
+		var_dump($query);
 	}
 	
 	public function query($text) {
@@ -64,5 +74,17 @@ class Api_Model extends ZP_Model {
 		}
 		
 		return $data;
+	}
+	
+	function getArray($text, $pos = NULL) {
+		$text = ltrim($text, "{");
+		$text = rtrim($text, "}");
+		$data = explode(",", $text);
+
+		if($pos !== NULL) {
+			return utf8_decode($data[$pos]);
+		} else {
+			return utf8_decode($data);
+		}
 	}
 }
