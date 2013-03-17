@@ -59,12 +59,12 @@ class Api_Model extends ZP_Model {
 	}
 	
 	public function getProducts($id_city, $id_category, $id_subcategory, $id_brand, $offset) {
-		$query =  "select product,id, price,establishment from profeco where id_city=".$id_city." and id_category=".$id_category." and ";
-		$query .= "id_subcategory=".$id_subcategory." and id_brand=".$id_brand." limit 20 offset " . $offset;
-		$data  = $this->Db->query($query);
+		$query   =  "select product,id, price,establishment from profeco where id_city=".$id_city." and id_category=".$id_category." and ";
+		$query  .= "id_subcategory=".$id_subcategory." and id_brand=".$id_brand." limit 20 offset " . $offset;
+		$results = $this->Db->query($query);
 		
-		die(var_dump($data[0]["product"]));
-		var_dump($data);
+		$data = $this->getProductArray($results);
+		die(var_dump($data));
 	}
 	
 	public function query($text) {
@@ -72,6 +72,19 @@ class Api_Model extends ZP_Model {
 		
 		foreach($data as $key=> $value) {
 			$data[$key]["name"] = utf8_decode($value["name"]);
+		}
+		
+		return $data;
+	}
+	
+	function getProductArray($array) {
+		foreach($products as $key => $product) {
+			$data[$key]["product"] = $this->getArray($product["product"], 1);
+			$data[$key]["brand"] = $this->getArray($product["product"], 2);
+			$data[$key]["presentation"] = $this->getArray($product["product"], 3);
+			$data[$key]["price"] = $product["price"];
+			$data[$key]["establishment"] = $product["establishment"];
+			$data[$key]["id"] = $product["id"];
 		}
 		
 		return $data;
