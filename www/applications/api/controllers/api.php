@@ -35,6 +35,7 @@ class Api_Controller extends ZP_Controller {
 	}
 	
 	public function products($id_city, $id_category, $id_subcategory, $id_brand, $offset = 0) {
+		die($id_city);
 		$vars["products"] = $this->Api_Model->getProducts($id_city, $id_category, $id_subcategory, $id_brand, $offset);
 		echo json_encode($vars);
 	}
