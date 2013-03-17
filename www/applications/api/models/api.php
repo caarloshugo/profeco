@@ -59,6 +59,12 @@ class Api_Model extends ZP_Model {
 	}
 	
 	public function getProducts($id_city, $id_category, $id_subcategory, $id_brand, $offset) {
+		if($brand==0){
+			die("si");
+		} else {
+			die("no");
+		}
+		
 		$query   =  "select product,id, price,establishment from profeco where id_city=".$id_city." and id_category=".$id_category." and ";
 		$query  .= "id_subcategory=".$id_subcategory." and id_brand=".$id_brand." limit 20 offset " . $offset;
 		$results = $this->Db->query($query);
