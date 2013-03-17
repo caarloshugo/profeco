@@ -64,7 +64,8 @@ class Api_Model extends ZP_Model {
 		$results = $this->Db->query($query);
 		
 		$data = $this->getProductArray($results);
-		die(var_dump($data));
+		
+		return $data;
 	}
 	
 	public function query($text) {
