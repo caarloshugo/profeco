@@ -63,7 +63,8 @@ class Api_Model extends ZP_Model {
 		$query .= "id_subcategory=".$id_subcategory." and id_brand=".$id_brand." limit 20 offset " . $offset;
 		$data  = $this->Db->query($query);
 		
-		var_dump($query);
+		die(var_dump($data));
+		var_dump($data);
 	}
 	
 	public function query($text) {
