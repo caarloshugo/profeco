@@ -60,16 +60,24 @@ class Api_Model extends ZP_Model {
 	
 	public function getProducts($id_city, $id_category, $id_subcategory, $id_brand, $offset) {
 		if($brand==0){
-			$query   =  "select product,id, price,establishment from profeco where id_city=".$id_city." and id_category=".$id_category." and ";
+			$query   =  "from profeco where id_city=".$id_city." and id_category=".$id_category." and ";
 			$query  .= "id_subcategory=".$id_subcategory." limit 20 offset " . $offset;
 		} else {
-			$query   =  "select product,id, price,establishment from profeco where id_city=".$id_city." and id_category=".$id_category." and ";
+			$query   =  "from profeco where id_city=".$id_city." and id_category=".$id_category." and ";
 			$query  .= "id_subcategory=".$id_subcategory." and id_brand=".$id_brand." limit 20 offset " . $offset;
 		}
 		
-		$results = $this->Db->query($query);
+		$results = $this->Db->query("select product,id, price,establishment ". $query);
+		$count   = $this->getCountProducts("select count(*) " . $query);
 		
 		$data = $this->getProductArray($results);
+		
+		return $data;
+	}
+	
+	public function getCountProducts($query) {
+		$data = $this->Db->query($query);
+		die(var_dump($data));
 		
 		return $data;
 	}
