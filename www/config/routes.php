@@ -40,7 +40,7 @@ $routes = array(
 		"application" => "api",
 		"controller"  => "api",
 		"method"	  => "query",
-		"params"	  => array(segment(1))
+		"params"	  => array(segment(1), segment(2), segment(3), segment(4))
 	),
 	5 => array(
 		"pattern"	  => "/^products/",

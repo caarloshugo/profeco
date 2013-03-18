@@ -92,14 +92,26 @@ class Api_Model extends ZP_Model {
 		return $data[0]["count"];
 	}
 	
-	public function query($text) {
-		$data = $this->Db->query("select distinct(id), name from brands where id IN (select id_brand from profeco where id_city=".$id_city." and id_subcategory=".$id_subcategory.") order by name desc");
+	public function query($id_city, $id_category, $text, $offset=0) {
+		$query = "from profeco where to_tsquery('".$text."') @@ textsearch and id_city=".$id_city." and id_category=".$id_category;
+		 
+		if($offset==0) {
+			$results = $this->Db->query("select DISTINCT(id),product,price,establishment ". $query . " order by price asc limit 20");
+		} else {
+			$results = $this->Db->query("select DISTINCT(id),product,price,establishment ". $query . " order by price asc limit 20 offset " . $offset);
+		} 
 		
-		foreach($data as $key=> $value) {
-			$data[$key]["name"] = utf8_decode($value["name"]);
+		$count   	   = $this->getCountProducts("select count(*) " . $query);
+		$data 		   = $this->getProductArray($results);
+		$data["count"] = $count;
+		
+		if((count($results) + $offset) < $count) {
+			$data["more"] = TRUE;
+		} else {
+			$data["more"] = FALSE;
 		}
 		
-		return $data;
+		return $data;	
 	}
 	
 	function getProductArray($products) {
@@ -114,7 +126,6 @@ class Api_Model extends ZP_Model {
 				"id"            => $product["id"]
 			);
 			*/
-			
 			
 			$data[$key]["product"] = $this->getArray($product["product"], 0);
 			$data[$key]["brand"] = $this->getArray($product["product"], 1);
