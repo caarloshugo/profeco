@@ -93,8 +93,9 @@ class Api_Model extends ZP_Model {
 	}
 	
 	public function query($id_city, $id_category, $text, $offset=0) {
-		$query = "from profeco where to_tsquery('".$text."') @@ textsearch and id_city=".$id_city." and id_category=".$id_category;
-		 
+		$query = "from profeco where to_tsquery('".strtoupper($text)."') @@ textsearch and id_city=".$id_city." and id_category=".$id_category;
+		
+		die(var_dump($query));
 		if($offset==0) {
 			$results = $this->Db->query("select DISTINCT(id),product,price,establishment ". $query . " order by price asc limit 20");
 		} else {
