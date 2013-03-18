@@ -58,7 +58,7 @@ class Api_Model extends ZP_Model {
 		return $data;
 	}
 	
-	public function getProducts($id_city, $id_category, $id_subcategory, $id_brand, $offset) {
+	public function getProducts($id_city, $id_category, $id_subcategory, $id_brand, $offset = 0) {
 		if($brand==0){
 			$query   =  "from profeco where id_city=".$id_city." and id_category=".$id_category." and ";
 			$query  .= "id_subcategory=".$id_subcategory;
