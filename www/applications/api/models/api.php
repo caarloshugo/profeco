@@ -67,7 +67,12 @@ class Api_Model extends ZP_Model {
 			$query  .= "id_subcategory=".$id_subcategory." and id_brand=".$id_brand;
 		}
 		
-		$results = $this->Db->query("select product,id, price,establishment ". $query . " limit 20 offset " . $offset);
+		if($offset==0) {
+			$results = $this->Db->query("select product,id, price,establishment ". $query . " limit 20");
+		} else {
+			$results = $this->Db->query("select product,id, price,establishment ". $query . " limit 20 offset " . $offset);
+		} 
+		
 		$count   = $this->getCountProducts("select count(*) " . $query);
 		
 		die(var_dump($results));
