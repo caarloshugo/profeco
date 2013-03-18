@@ -77,7 +77,7 @@ class Api_Model extends ZP_Model {
 		$data 		   = $this->getProductArray($results);
 		$data["count"] = $count;
 		
-		if(count($results) <= $count) {
+		if((count($results) + $offset) <= $count) {
 			$data["more"] = TRUE;
 		} else {
 			$data["more"] = FALSE;
