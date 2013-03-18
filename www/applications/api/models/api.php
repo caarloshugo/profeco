@@ -78,9 +78,9 @@ class Api_Model extends ZP_Model {
 		$data["count"] = $count;
 		
 		if(count($results) <= $count) {
-			$data["more"] = FALSE;
-		} else {
 			$data["more"] = TRUE;
+		} else {
+			$data["more"] = FALSE;
 		}
 		
 		return $data;
