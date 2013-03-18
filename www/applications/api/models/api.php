@@ -67,6 +67,8 @@ class Api_Model extends ZP_Model {
 			$query  .= "id_subcategory=".$id_subcategory." and id_brand=".$id_brand;
 		}
 		
+		die(var_dump($query));
+		
 		if($offset==0) {
 			$results = $this->Db->query("select product,id, price,establishment ". $query . " order by price asc limit 20");
 		} else {
