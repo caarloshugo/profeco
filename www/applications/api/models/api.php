@@ -104,12 +104,23 @@ class Api_Model extends ZP_Model {
 	
 	function getProductArray($products) {
 		foreach($products as $key => $product) {
+			$data[] = array(
+				"product"       => $this->getArray($product["product"], 0),
+				"brand"         => $this->getArray($product["product"], 1),
+				"presentation"  => $this->getArray($product["product"], 2),
+				"price"         => $product["price"],
+				"establishment" => $product["establishment"],
+				"id"            => $product["id"]
+			);
+			
+			/*
 			$data[$key]["product"] = $this->getArray($product["product"], 0);
 			$data[$key]["brand"] = $this->getArray($product["product"], 1);
 			$data[$key]["presentation"] = $this->getArray($product["product"], 2);
 			$data[$key]["price"] = $product["price"];
 			$data[$key]["establishment"] = $product["establishment"];
 			$data[$key]["id"] = $product["id"];
+			*/
 		}
 		
 		return $data;
