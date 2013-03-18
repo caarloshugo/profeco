@@ -70,6 +70,7 @@ class Api_Model extends ZP_Model {
 		$results = $this->Db->query("select product,id, price,establishment ". $query . " limit 20 offset " . $offset);
 		$count   = $this->getCountProducts("select count(*) " . $query);
 		
+		die(var_dump($results));
 		
 		$data 		   = $this->getProductArray($results);
 		$data["count"] = $count;
