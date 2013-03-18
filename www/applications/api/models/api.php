@@ -68,9 +68,9 @@ class Api_Model extends ZP_Model {
 		}
 		
 		if($offset==0) {
-			$results = $this->Db->query("select product,id, price,establishment ". $query . " limit 20");
+			$results = $this->Db->query("select product,id, price,establishment ". $query . " order by price asc limit 20");
 		} else {
-			$results = $this->Db->query("select product,id, price,establishment ". $query . " limit 20 offset " . $offset);
+			$results = $this->Db->query("select product,id, price,establishment ". $query . " order by price asc limit 20 offset " . $offset);
 		} 
 		
 		$count   	   = $this->getCountProducts("select count(*) " . $query);
